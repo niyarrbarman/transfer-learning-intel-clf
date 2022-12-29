@@ -4,7 +4,9 @@ This repository contains a transfer learning project using the [timm](https://ti
 
 # Output
 
-![Output 1](https://github.com/niyarrbarman/transfer-learning-intel-clf/blob/main/outputs/output.jpg)
+<img src="https://github.com/niyarrbarman/transfer-learning-intel-clf/blob/main/outputs/output.jpg"width="200" height="400" />
+
+![Output 1]()
 ![Output 2](https://github.com/niyarrbarman/transfer-learning-intel-clf/blob/main/outputs/output%20-1.jpg)
 ![Output 3](https://github.com/niyarrbarman/transfer-learning-intel-clf/blob/main/outputs/output%20-%203.jpg)
 ![Output 4](https://github.com/niyarrbarman/transfer-learning-intel-clf/blob/main/outputs/output%20-%202.jpg)
