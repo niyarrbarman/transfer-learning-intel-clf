@@ -23,14 +23,16 @@ def view_classify(img, ps):
 
     return None
   
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = ClassifierModel().to(DEVICE)
-model.load_state_dict(torch.load("/content/best-weights.pt"))
+if __name__ == "__main__":
+    
+    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = ClassifierModel().to(DEVICE)
+    model.load_state_dict(torch.load("/content/best-weights.pt"))
 
-image, label = validset[np.random.randint(0, len(validset))]
+    image, label = validset[np.random.randint(0, len(validset))]
 
-image = image.unsqueeze(0)
-logits = model(image.to(DEVICE))
-probs = nn.Softmax(dim=1)(logits)
+    image = image.unsqueeze(0)
+    logits = model(image.to(DEVICE))
+    probs = nn.Softmax(dim=1)(logits)
 
-view_classify(image.squeeze(), probs)
+    view_classify(image.squeeze(), probs)
