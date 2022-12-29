@@ -113,11 +113,11 @@ class Data:
 if __name__ == "__main__":
   
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    LEARNING_RATE = 1e-3
-    BATCH_SIZE = 32
-    EPOCHS = 15
-    VAL_DIR = "/kaggle/input/intel-image-classification/seg_test/seg_test/"
-    TRAIN_DIR = "/kaggle/input/intel-image-classification/seg_train/seg_train/"
+    LEARNING_RATE = ENTER-LEARNING-RATE #1e-3
+    BATCH_SIZE = ENTER-BATCH-SIZE   #32
+    EPOCHS = ENTER-NUM-EPOCHS   #15
+    VAL_DIR = ENTER-VALIDATION-DIRECTORY
+    TRAIN_DIR = ENTER-TRAINING-DIRECTORY
 
     # GET DATA
 
