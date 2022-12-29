@@ -1,4 +1,4 @@
-from model import ClassifierModel
+from model import ClassifierModel, Data
 from imports import *
 
 def view_classify(img, ps):
@@ -25,9 +25,14 @@ def view_classify(img, ps):
   
 if __name__ == "__main__":
     
+    
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    TRAIN_DIR = ENTER-TRAINING-DIRECTORY
+    VAL_DIR = ENTER-VALIDATION-DIRECTORY
+    
     model = ClassifierModel().to(DEVICE)
     model.load_state_dict(torch.load("/content/best-weights.pt"))
+    trainLoader, valLoader, trainset, validset = Data(train_dir=TRAIN_DIR, val_dir=VAL_DIR, batch_size=BATCH_SIZE).load()
 
     image, label = validset[np.random.randint(0, len(validset))]
 
