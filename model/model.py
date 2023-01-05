@@ -75,35 +75,33 @@ class Model(nn.Module):
         return logits
 
 
-def train_aug():
-
-    return transforms.Compose([
-        transforms.Resize((256, 256)),
-        transforms.RandomHorizontalFlip(p=0.5),
-        transforms.RandomRotation(degrees=(-20, +20)),
-        transforms.ToTensor()
-    ])
-
-
-def val_aug():
-
-    return transforms.Compose([
-        transforms.Resize((256, 256)),
-        transforms.ToTensor()
-    ])
-
-
 class Data:
 
     def __init__(self, train_dir, val_dir, batch_size):
         self.train_dir = train_dir
         self.val_dir = val_dir
         self.batch_size = batch_size
-
+        
+    @staticmethod
+    def train_aug():
+        return transforms.Compose([
+            transforms.Resize((256, 256)),
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.RandomRotation(degrees=(-20, +20)),
+            transforms.ToTensor()
+        ])
+    
+    @staticmethod
+    def val_aug():
+        return transforms.Compose([
+            transforms.Resize((256, 256)),
+            transforms.ToTensor()
+        ])
+    
     def load(self):
 
-        trainset = datasets.ImageFolder(root=self.train_dir, transform=train_aug())
-        valset = datasets.ImageFolder(root=self.val_dir, transform=val_aug())
+        trainset = datasets.ImageFolder(root=self.train_dir, transform=self.train_aug())
+        valset = datasets.ImageFolder(root=self.val_dir, transform=self.val_aug())
 
         train_loader = DataLoader(dataset=trainset, batch_size=self.batch_size, shuffle=True)
         val_loader = DataLoader(dataset=valset, batch_size=self.batch_size, shuffle=True)
